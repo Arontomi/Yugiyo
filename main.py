@@ -7,7 +7,7 @@ def get_card_data(card_name):
     response = requests.get(url)
     if response.status_code == 200:
         data = response.json()
-        if "data" in data:
+        if data.get("data") is not None:
             return data["data"][0]  # Return first result
     return None
 
